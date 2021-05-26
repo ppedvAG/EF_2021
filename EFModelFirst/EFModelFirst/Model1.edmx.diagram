@@ -5,12 +5,12 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="9e82d323ab9a4ace99fa645f6638c239" Name="Diagram1" ZoomLevel="131" >
-        <EntityTypeShape EntityType="Model1.Person" Width="1.5" PointX="3.625" PointY="0.75" />
-        <EntityTypeShape EntityType="Model1.Kunde" Width="1.5" PointX="2" PointY="3" />
+        <EntityTypeShape EntityType="Model1.Person" Width="1.5" PointX="3.625" PointY="0.75" FillColor="192, 0, 192" />
+        <EntityTypeShape EntityType="Model1.Kunde" Width="1.5" PointX="2" PointY="3" FillColor="Lime" />
         <InheritanceConnector EntityType="Model1.Kunde" />
-        <EntityTypeShape EntityType="Model1.Mitarbeiter" Width="1.5" PointX="5.875" PointY="3.125" />
+        <EntityTypeShape EntityType="Model1.Mitarbeiter" Width="1.5" PointX="5.875" PointY="3.125" FillColor="Red" />
         <InheritanceConnector EntityType="Model1.Mitarbeiter" />
-        <EntityTypeShape EntityType="Model1.Abteilung" Width="1.5" PointX="8.125" PointY="1.125" />
+        <EntityTypeShape EntityType="Model1.Abteilung" Width="1.5" PointX="8.125" PointY="1.125" FillColor="Yellow" />
         <AssociationConnector Association="Model1.KundeMitarbeiter" />
         <AssociationConnector Association="Model1.MitarbeiterAbteilung" />
       </Diagram>
