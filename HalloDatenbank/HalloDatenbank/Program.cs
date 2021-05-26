@@ -30,8 +30,14 @@ namespace HalloDatenbank
                     Console.WriteLine($"Es wurden {count} Employees in der Datenbank gefunden");
 
 
+                Console.WriteLine("Suche:");
+                string suche = Console.ReadLine();
+
                 SqlCommand selectCmd = con.CreateCommand();
-                selectCmd.CommandText = "SELECT * FROM Employees";
+                //selectCmd.CommandText = "SELECT * FROM Employees WHERE FirstName LIKE '" + suche + "%'"; //böse SQL Injection
+                selectCmd.CommandText = "SELECT * FROM Employees WHERE FirstName LIKE @search";
+                selectCmd.Parameters.AddWithValue("@search", suche + "%");
+
                 SqlDataReader reader = selectCmd.ExecuteReader();
                 while (reader.Read())
                 {
