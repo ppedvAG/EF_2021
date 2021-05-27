@@ -1,0 +1,16 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="EfCodeFirst.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ConString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)" />
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="WinSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">800, 600</Value>
+    </Setting>
+    <Setting Name="WinPos" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">0, 0</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
