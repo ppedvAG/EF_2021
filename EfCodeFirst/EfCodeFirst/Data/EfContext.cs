@@ -17,10 +17,16 @@ namespace EfCodeFirst.Data
             modelBuilder.Entity<Person>().ToTable("Person");
             modelBuilder.Entity<Kunde>().ToTable("Kunde");
             modelBuilder.Entity<Mitarbeiter>().ToTable("Mitarbeiter");
+
+            modelBuilder.Entity<Abteilung>().Property(x => x.Bezeichnung)
+                                            .HasMaxLength(55)
+                                            .IsRequired()
+                                            .HasColumnName("DepName");
         }
 
         public EfContext()
         {
+            Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 
