@@ -29,6 +29,8 @@ namespace EfCodeFirst.Data
             optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=EfCodeFirst;Trusted_Connection=true");
             //optionsBuilder.UseSqlServer(Properties.Settings.Default.ConString);
 
+            optionsBuilder.UseLazyLoadingProxies();
+
             base.OnConfiguring(optionsBuilder);
         }
     }

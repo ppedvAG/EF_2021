@@ -1,5 +1,6 @@
 ﻿using EfCodeFirst.Data;
 using EfCodeFirst.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -17,7 +18,10 @@ namespace EfCodeFirst
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = context.Mitarbeiter.ToList();
+            dataGridView1.DataSource = context.Mitarbeiter
+                                              .Include(x => x.Abteilungen)
+                                              .Include(x => x.Kunden)
+                                              .ToList();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -56,6 +60,24 @@ namespace EfCodeFirst
                 context.Mitarbeiter.Add(m);
             }
             context.SaveChanges();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow?.DataBoundItem is Mitarbeiter m)
+            {
+                MessageBox.Show($"{m.Name} {string.Join(", ", m.Abteilungen.Select(x => x.Bezeichnung))}");
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow?.DataBoundItem is Mitarbeiter m)
+            {
+                var abts = context.Abteilungen.Where(x => x.Mitarbeiter.Contains(m));
+
+                MessageBox.Show($"{m.Name} {string.Join(", ", abts.Select(x => x.Bezeichnung))}");
+            }
         }
     }
 }

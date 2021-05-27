@@ -6,9 +6,9 @@ namespace EfCodeFirst.Model
     {
         public string Beruf { get; set; }
 
-        public  ICollection<Kunde> Kunden { get; set; } = new HashSet<Kunde>();
+        public virtual ICollection<Kunde> Kunden { get; set; } = new HashSet<Kunde>();
 
-        public ICollection<Abteilung> Abteilungen { get; set; } = new HashSet<Abteilung>();
+        public virtual ICollection<Abteilung> Abteilungen { get; set; } = new HashSet<Abteilung>();
 
 
     }

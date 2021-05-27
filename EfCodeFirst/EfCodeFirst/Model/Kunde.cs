@@ -4,7 +4,7 @@
     {
         public string Kundennummer { get; set; }
 
-        public Mitarbeiter Mitarbeiter { get; set; }
+        public virtual Mitarbeiter Mitarbeiter { get; set; }
     }
 
 }
