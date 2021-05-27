@@ -22,6 +22,8 @@ namespace EFModelFirst
 
         private void button1_Click(object sender, EventArgs e)
         {
+            context = new Model1Container(); // eine neue Unit-of-Work startet mit den Lade aller daten
+
             dataGridView1.DataSource = context.PersonSet.OfType<Mitarbeiter>()
                                                         .Include(x => x.Abteilung) //eager Loading
                                                         .Include(x => x.Kunde) //eager Loading
@@ -77,6 +79,31 @@ namespace EFModelFirst
         {
             int count = context.PersonSet.Count(x => x.Gebdatum.Month == 6);
             MessageBox.Show($"{count} Personen");
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            context.SaveChanges();
+        }
+
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (dataGridView1.CurrentRow.DataBoundItem is Mitarbeiter m)
+            {
+
+                //  context.PersonSet.Remove(m); //== context.Entry(m).State = EntityState.Deleted;
+
+                // context.Entry(m).State = EntityState.Added; //clone
+
+                context.Entry(m).State = EntityState.Detached;
+                m.Beruf = "rljnewkj";
+                m.Gebdatum = new DateTime(2000, 8, 1);
+                m.Name = "FFFFFFFF";
+                context.Entry(m).State = EntityState.Modified;
+
+
+                MessageBox.Show($"{m.Name} {context.Entry(m).State}");
+            }
         }
     }
 }
