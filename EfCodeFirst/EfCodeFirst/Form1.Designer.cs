@@ -33,8 +33,9 @@ namespace EfCodeFirst
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button5 = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -44,6 +45,7 @@ namespace EfCodeFirst
             this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel1.Controls.Add(this.button1);
+            this.flowLayoutPanel1.Controls.Add(this.button5);
             this.flowLayoutPanel1.Controls.Add(this.button2);
             this.flowLayoutPanel1.Controls.Add(this.button3);
             this.flowLayoutPanel1.Controls.Add(this.button4);
@@ -69,7 +71,7 @@ namespace EfCodeFirst
             // 
             this.button2.AutoSize = true;
             this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button2.Location = new System.Drawing.Point(97, 3);
+            this.button2.Location = new System.Drawing.Point(233, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(248, 42);
             this.button2.TabIndex = 1;
@@ -81,13 +83,25 @@ namespace EfCodeFirst
             // 
             this.button3.AutoSize = true;
             this.button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button3.Location = new System.Drawing.Point(351, 3);
+            this.button3.Location = new System.Drawing.Point(487, 3);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(265, 42);
             this.button3.TabIndex = 2;
             this.button3.Text = "Zeige Abteilungen (LL)";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.AutoSize = true;
+            this.button4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button4.Location = new System.Drawing.Point(758, 3);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(318, 42);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "Zeige Abteilungen (explizit)";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // dataGridView1
             // 
@@ -100,17 +114,17 @@ namespace EfCodeFirst
             this.dataGridView1.Size = new System.Drawing.Size(1252, 528);
             this.dataGridView1.TabIndex = 1;
             // 
-            // button4
+            // button5
             // 
-            this.button4.AutoSize = true;
-            this.button4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button4.Location = new System.Drawing.Point(622, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(318, 42);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Zeige Abteilungen (explizit)";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button5.AutoSize = true;
+            this.button5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button5.Location = new System.Drawing.Point(97, 3);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(130, 42);
+            this.button5.TabIndex = 4;
+            this.button5.Text = "Speichern";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Form1
             // 
@@ -140,6 +154,7 @@ namespace EfCodeFirst
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }
 

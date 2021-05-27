@@ -79,6 +79,11 @@ namespace EfCodeFirst
                 MessageBox.Show($"{m.Name} {string.Join(", ", abts.Select(x => x.Bezeichnung))}");
             }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            context.SaveChanges();
+        }
     }
 }
 

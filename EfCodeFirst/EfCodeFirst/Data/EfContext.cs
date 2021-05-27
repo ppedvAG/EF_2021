@@ -26,13 +26,13 @@ namespace EfCodeFirst.Data
 
         public EfContext()
         {
-            Database.EnsureDeleted();
-            Database.EnsureCreated();
+            //Database.EnsureDeleted();
+            //Database.EnsureCreated();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=EfCodeFirst;Trusted_Connection=true");
+            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=EfCodeFirst;Trusted_Connection=true;"); 
             //optionsBuilder.UseSqlServer(Properties.Settings.Default.ConString);
 
             optionsBuilder.UseLazyLoadingProxies();
