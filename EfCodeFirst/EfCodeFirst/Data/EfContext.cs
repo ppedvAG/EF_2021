@@ -28,6 +28,7 @@ namespace EfCodeFirst.Data
         {
             //Database.EnsureDeleted();
             //Database.EnsureCreated();
+            Database.Migrate();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -36,6 +37,7 @@ namespace EfCodeFirst.Data
             //optionsBuilder.UseSqlServer(Properties.Settings.Default.ConString);
 
             optionsBuilder.UseLazyLoadingProxies();
+            
 
             base.OnConfiguring(optionsBuilder);
         }

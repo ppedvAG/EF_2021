@@ -12,6 +12,8 @@ namespace EfCodeFirst
         public Form1()
         {
             InitializeComponent();
+
+            context.Database.EnsureCreated();
         }
 
         EfContext context = new EfContext();

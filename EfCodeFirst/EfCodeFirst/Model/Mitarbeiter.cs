@@ -7,6 +7,8 @@ namespace EfCodeFirst.Model
         public string Beruf { get; set; }
 
         public string Gehalt { get; set; }
+        public int AnzahlOhren { get; set; }
+        public int Hände { get; set; }
 
         public decimal GehaltAlsDec { get; set; }
 
