@@ -1,6 +1,7 @@
 ﻿using EfCodeFirst.Model;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Linq;
 
 namespace EfCodeFirst.Data
 {
@@ -27,8 +28,24 @@ namespace EfCodeFirst.Data
 
 
             //todo conventions
-            modelBuilder.Entity<Person>().Property(x => x.LastModified).IsConcurrencyToken();
             modelBuilder.Entity<Person>().Property(x => x.RowVersion).IsRowVersion().IsConcurrencyToken();
+
+
+            //nur bei Person
+            modelBuilder.Entity<Person>().Property(x => x.LastModified).IsConcurrencyToken();
+            //Conventions ab ef core: bei alles Entities: Personen und Abeteilungen
+            foreach (var property in modelBuilder.Model.GetEntityTypes()
+                                             .SelectMany(x => x.GetProperties())
+                                             .Where(x => x.Name == nameof(Entity.LastModified)))
+            {
+                property.IsConcurrencyToken = true;
+            }
+
+            //Conventions ab ef core: Alle Tabllennamen sollem mit tlb_ anfangen
+            foreach (var ents in modelBuilder.Model.GetEntityTypes())
+            {
+                ents.SetTableName($"tbl_{ents.GetTableName()}");
+            }
 
             //modelBuilder.Entity<Mitarbeiter>().Property(x => x.Beruf).IsConcurrencyToken(); 
         }

@@ -140,6 +140,13 @@ namespace EfCodeFirst
                 MessageBox.Show($"{ex.Message}", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            var abt = context.Abteilungen.FirstOrDefault();
+            abt.Bezeichnung += "#";
+            
+        }
     }
 }
 

@@ -42,6 +42,7 @@ namespace EfCodeFirst
             this.ModifiedColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GebDatumColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button6 = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -55,10 +56,11 @@ namespace EfCodeFirst
             this.flowLayoutPanel1.Controls.Add(this.button2);
             this.flowLayoutPanel1.Controls.Add(this.button3);
             this.flowLayoutPanel1.Controls.Add(this.button4);
+            this.flowLayoutPanel1.Controls.Add(this.button6);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1252, 48);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1252, 96);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // button1
@@ -140,12 +142,12 @@ namespace EfCodeFirst
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 48);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 96);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 82;
             this.dataGridView1.RowTemplate.Height = 41;
-            this.dataGridView1.Size = new System.Drawing.Size(1252, 528);
+            this.dataGridView1.Size = new System.Drawing.Size(1252, 480);
             this.dataGridView1.TabIndex = 1;
             // 
             // BerufColumn
@@ -183,6 +185,18 @@ namespace EfCodeFirst
             this.GebDatumColumn.Name = "GebDatumColumn";
             this.GebDatumColumn.Width = 174;
             // 
+            // button6
+            // 
+            this.button6.AutoSize = true;
+            this.button6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button6.Location = new System.Drawing.Point(3, 51);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(217, 42);
+            this.button6.TabIndex = 5;
+            this.button6.Text = "Change Abteilung";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
@@ -216,6 +230,7 @@ namespace EfCodeFirst
         private System.Windows.Forms.DataGridViewTextBoxColumn ModifiedColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn GebDatumColumn;
+        private System.Windows.Forms.Button button6;
     }
 }
 
