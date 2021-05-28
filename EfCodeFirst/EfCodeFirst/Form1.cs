@@ -20,6 +20,24 @@ namespace EfCodeFirst
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (context.ChangeTracker.HasChanges())
+            {
+                var msg = $"Es sind nicht gespeicherte änderungen Vorhanden, sollen diese gespeichert werden?";
+                var dlgRes = MessageBox.Show(msg, "Speichern?", MessageBoxButtons.YesNoCancel);
+
+                if (dlgRes == DialogResult.Yes)
+                    context.SaveChanges();
+                else if (dlgRes == DialogResult.Cancel)
+                    return;
+            }
+            context = new EfContext();
+
+            LoadAllMitarbeiter();
+        }
+
+        private void LoadAllMitarbeiter()
+        {
+
             dataGridView1.DataSource = context.Mitarbeiter
                                               .Include(x => x.Abteilungen)
                                               .Include(x => x.Kunden)
@@ -84,7 +102,43 @@ namespace EfCodeFirst
 
         private void button5_Click(object sender, EventArgs e)
         {
-            context.SaveChanges();
+            SaveAll();
+        }
+
+        private void SaveAll()
+        {
+            try
+            {
+                context.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                var msg = "Die Daten wurden zwischenzeitlich geändert. Welche Version soll nun verwendet werden.\n\n[JA] Meine Daten\n[NEIN] Datenbankversion erhalten";
+                var dlgRes = MessageBox.Show(msg, "", MessageBoxButtons.YesNoCancel);
+
+                if (dlgRes == DialogResult.Yes) //DB überscheiben
+                {
+                    foreach (var item in ex.Entries)
+                    {
+                        item.OriginalValues.SetValues(item.GetDatabaseValues());
+                    }
+                    SaveAll();
+                }
+                else if (dlgRes == DialogResult.No) //DB Daten laden
+                {
+                    foreach (var item in ex.Entries)
+                    {
+                        item.CurrentValues.SetValues(item.GetDatabaseValues());
+                        item.OriginalValues.SetValues(item.CurrentValues);
+                    }
+                    LoadAllMitarbeiter();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

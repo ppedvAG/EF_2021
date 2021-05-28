@@ -1,5 +1,6 @@
 ﻿using EfCodeFirst.Model;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace EfCodeFirst.Data
 {
@@ -13,6 +14,7 @@ namespace EfCodeFirst.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            //fluent-API
 
             modelBuilder.Entity<Person>().ToTable("Person");
             modelBuilder.Entity<Kunde>().ToTable("Kunde");
@@ -22,6 +24,12 @@ namespace EfCodeFirst.Data
                                             .HasMaxLength(55)
                                             .IsRequired()
                                             .HasColumnName("DepName");
+
+
+            //todo conventions
+            modelBuilder.Entity<Person>().Property(x => x.LastModified).IsConcurrencyToken();
+
+            //modelBuilder.Entity<Mitarbeiter>().Property(x => x.Beruf).IsConcurrencyToken(); 
         }
 
         public EfContext()
@@ -31,13 +39,29 @@ namespace EfCodeFirst.Data
             Database.Migrate();
         }
 
+        public override int SaveChanges()
+        {
+            foreach (var item in ChangeTracker.Entries<Entity>())
+            {
+                if (item.State == EntityState.Added || item.State == EntityState.Modified)
+                {
+                    item.Entity.LastModified = DateTime.Now;
+                    item.Entity.LastModifier = Environment.UserName;
+                }
+
+            }
+
+
+            return base.SaveChanges();
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=EfCodeFirst;Trusted_Connection=true;"); 
+            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=EfCodeFirst;Trusted_Connection=true;");
             //optionsBuilder.UseSqlServer(Properties.Settings.Default.ConString);
 
             optionsBuilder.UseLazyLoadingProxies();
-            
+
 
             base.OnConfiguring(optionsBuilder);
         }

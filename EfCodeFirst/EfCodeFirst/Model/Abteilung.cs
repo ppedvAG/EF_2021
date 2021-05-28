@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EfCodeFirst.Model
 {
-    public class Abteilung
+    public class Abteilung : Entity
     {
-        public int Id { get; set; }
+
 
         [MaxLength(58)]
         [Required]
