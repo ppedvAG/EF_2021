@@ -1,0 +1,15 @@
+
+Ef Core 5 Code First Migration:
+1. Scaffold-DbContext -provider Microsoft.EntityFrameworkCore.SqlServer -Connection "Server=(localdb)\mssqllocaldb;Database=NORTHWND;Trusted_Connection=true"
+
+2.  Add-Migration Inital
+3. Up/Down Methoden leer machen
+4. update-dabase -> MirgrationHistory Taballe wird in DB erzeugt
+...
+5. Änderungen am Model (z.b neues Property Anzahl Ohren)
+
+
+Scaffolding mit Ordnern:
+Scaffold-DbContext -provider Microsoft.EntityFrameworkCore.SqlServer -Connection "Server=(localdb)\mssqllocaldb;Database=NORTHWND;Trusted_Connection=true" -OutputDir \Model -ContextDir \Data
+6. Add-Migration Ohren -> Neue Migrationsdatei
+7. Update-Database -> Anzahl Ohren in DB als Spalten
