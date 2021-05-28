@@ -35,8 +35,8 @@ namespace EfCodeFirst.Data
             modelBuilder.Entity<Person>().Property(x => x.LastModified).IsConcurrencyToken();
             //Conventions ab ef core: bei alles Entities: Personen und Abeteilungen
             foreach (var property in modelBuilder.Model.GetEntityTypes()
-                                             .SelectMany(x => x.GetProperties())
-                                             .Where(x => x.Name == nameof(Entity.LastModified)))
+                                                 .SelectMany(x => x.GetProperties())
+                                                 .Where(x => x.Name == nameof(Entity.LastModified)))
             {
                 property.IsConcurrencyToken = true;
             }
