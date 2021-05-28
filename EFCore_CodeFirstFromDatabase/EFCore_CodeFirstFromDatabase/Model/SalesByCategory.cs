@@ -3,10 +3,11 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace EFCore_CodeFirstFromDatabase
+namespace EFCore_CodeFirstFromDatabase.Model
 {
-    public partial class ProductSalesFor1997
+    public partial class SalesByCategory
     {
+        public int CategoryId { get; set; }
         public string CategoryName { get; set; }
         public string ProductName { get; set; }
         public decimal? ProductSales { get; set; }

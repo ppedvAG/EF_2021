@@ -3,10 +3,15 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace EFCore_CodeFirstFromDatabase
+namespace EFCore_CodeFirstFromDatabase.Model
 {
-    public partial class OrdersQry
+    public partial class Order
     {
+        public Order()
+        {
+            OrderDetails = new HashSet<OrderDetail>();
+        }
+
         public int OrderId { get; set; }
         public string CustomerId { get; set; }
         public int? EmployeeId { get; set; }
@@ -21,11 +26,10 @@ namespace EFCore_CodeFirstFromDatabase
         public string ShipRegion { get; set; }
         public string ShipPostalCode { get; set; }
         public string ShipCountry { get; set; }
-        public string CompanyName { get; set; }
-        public string Address { get; set; }
-        public string City { get; set; }
-        public string Region { get; set; }
-        public string PostalCode { get; set; }
-        public string Country { get; set; }
+
+        public virtual Customer Customer { get; set; }
+        public virtual Employee Employee { get; set; }
+        public virtual Shipper ShipViaNavigation { get; set; }
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

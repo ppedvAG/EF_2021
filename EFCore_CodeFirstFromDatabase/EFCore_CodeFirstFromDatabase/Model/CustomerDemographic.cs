@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace EFCore_CodeFirstFromDatabase
+namespace EFCore_CodeFirstFromDatabase.Model
 {
     public partial class CustomerDemographic
     {

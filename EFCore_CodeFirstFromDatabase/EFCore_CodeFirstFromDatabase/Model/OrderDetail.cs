@@ -3,16 +3,17 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace EFCore_CodeFirstFromDatabase
+namespace EFCore_CodeFirstFromDatabase.Model
 {
-    public partial class OrderDetailsExtended
+    public partial class OrderDetail
     {
         public int OrderId { get; set; }
         public int ProductId { get; set; }
-        public string ProductName { get; set; }
         public decimal UnitPrice { get; set; }
         public short Quantity { get; set; }
         public float Discount { get; set; }
-        public decimal? ExtendedPrice { get; set; }
+
+        public virtual Order Order { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

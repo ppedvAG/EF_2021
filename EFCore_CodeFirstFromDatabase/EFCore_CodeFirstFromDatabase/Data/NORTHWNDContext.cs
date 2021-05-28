@@ -1,10 +1,11 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using EFCore_CodeFirstFromDatabase.Model;
 
 #nullable disable
 
-namespace EFCore_CodeFirstFromDatabase
+namespace EFCore_CodeFirstFromDatabase.Data
 {
     public partial class NORTHWNDContext : DbContext
     {
