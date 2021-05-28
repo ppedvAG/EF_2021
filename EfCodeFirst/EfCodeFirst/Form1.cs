@@ -12,7 +12,7 @@ namespace EfCodeFirst
         public Form1()
         {
             InitializeComponent();
-
+            dataGridView1.AutoGenerateColumns = false;
             context.Database.EnsureCreated();
         }
 

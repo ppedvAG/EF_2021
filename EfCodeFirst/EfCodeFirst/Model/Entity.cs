@@ -12,5 +12,7 @@ namespace EfCodeFirst.Model
         public DateTime LastModified { get; set; }
         public string LastModifier { get; set; }
 
+        public byte[] RowVersion { get; set; }
+
     }
 }

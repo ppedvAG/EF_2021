@@ -29,13 +29,19 @@ namespace EfCodeFirst
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button5 = new System.Windows.Forms.Button();
+            this.BerufColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ModifiedColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GebDatumColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -66,6 +72,18 @@ namespace EfCodeFirst
             this.button1.Text = "Laden";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button5
+            // 
+            this.button5.AutoSize = true;
+            this.button5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button5.Location = new System.Drawing.Point(97, 3);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(130, 42);
+            this.button5.TabIndex = 4;
+            this.button5.Text = "Speichern";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button2
             // 
@@ -105,26 +123,65 @@ namespace EfCodeFirst
             // 
             // dataGridView1
             // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.BerufColumn,
+            this.ModifiedColumn,
+            this.NameColumn,
+            this.GebDatumColumn});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 48);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 82;
             this.dataGridView1.RowTemplate.Height = 41;
             this.dataGridView1.Size = new System.Drawing.Size(1252, 528);
             this.dataGridView1.TabIndex = 1;
             // 
-            // button5
+            // BerufColumn
             // 
-            this.button5.AutoSize = true;
-            this.button5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button5.Location = new System.Drawing.Point(97, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(130, 42);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Speichern";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.BerufColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.BerufColumn.DataPropertyName = "Beruf";
+            this.BerufColumn.HeaderText = "Beruf";
+            this.BerufColumn.MinimumWidth = 10;
+            this.BerufColumn.Name = "BerufColumn";
+            // 
+            // ModifiedColumn
+            // 
+            this.ModifiedColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ModifiedColumn.DataPropertyName = "LastModified";
+            this.ModifiedColumn.HeaderText = "Mod";
+            this.ModifiedColumn.MinimumWidth = 10;
+            this.ModifiedColumn.Name = "ModifiedColumn";
+            this.ModifiedColumn.Width = 109;
+            // 
+            // NameColumn
+            // 
+            this.NameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.NameColumn.DataPropertyName = "Name";
+            this.NameColumn.HeaderText = "Name";
+            this.NameColumn.MinimumWidth = 10;
+            this.NameColumn.Name = "NameColumn";
+            this.NameColumn.Width = 123;
+            // 
+            // GebDatumColumn
+            // 
+            this.GebDatumColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.GebDatumColumn.DataPropertyName = "GebDatum";
+            this.GebDatumColumn.HeaderText = "GebDatum";
+            this.GebDatumColumn.MinimumWidth = 10;
+            this.GebDatumColumn.Name = "GebDatumColumn";
+            this.GebDatumColumn.Width = 174;
             // 
             // Form1
             // 
@@ -155,6 +212,10 @@ namespace EfCodeFirst
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BerufColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ModifiedColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GebDatumColumn;
     }
 }
 

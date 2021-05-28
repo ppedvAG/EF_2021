@@ -28,6 +28,7 @@ namespace EfCodeFirst.Data
 
             //todo conventions
             modelBuilder.Entity<Person>().Property(x => x.LastModified).IsConcurrencyToken();
+            modelBuilder.Entity<Person>().Property(x => x.RowVersion).IsRowVersion().IsConcurrencyToken();
 
             //modelBuilder.Entity<Mitarbeiter>().Property(x => x.Beruf).IsConcurrencyToken(); 
         }
@@ -48,9 +49,7 @@ namespace EfCodeFirst.Data
                     item.Entity.LastModified = DateTime.Now;
                     item.Entity.LastModifier = Environment.UserName;
                 }
-
             }
-
 
             return base.SaveChanges();
         }
